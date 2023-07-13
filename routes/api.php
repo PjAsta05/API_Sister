@@ -29,5 +29,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('/logout', LogoutController::class)->name('logout');
 
-Route::post('/books', BookController::class, 'index');
-Route::post('/add', BookController::class, 'create');
+Route::get('/books', [BookController::class, 'index']);
+Route::post('/add', [BookController::class, 'store']);
+Route::put('/edit/{id}', [BookController::class, 'update']);
+Route::delete('/delete/{id}', [BookController::class, 'destroy']);
